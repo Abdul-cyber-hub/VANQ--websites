@@ -1,353 +1,546 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#03050a">
+    <meta name="description" content="VANQ is an emerging technology brand exploring AI, software, automation, and digital products.">
 
-    <title>VANQ | Technology for Tomorrow</title>
+    <title>VANQ — Build Beyond Boundaries</title>
 
-    <style>
-        /* BASIC SETTINGS */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #080b14;
-            color: white;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION BAR */
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 8%;
-            border-bottom: 1px solid #20263a;
-            position: sticky;
-            top: 0;
-            background: rgba(8, 11, 20, 0.95);
-            z-index: 10;
-        }
-
-        .logo {
-            color: #8db8ff;
-            font-size: 30px;
-            font-weight: bold;
-            letter-spacing: 6px;
-        }
-
-        nav a {
-            color: #c4cad8;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #8db8ff;
-        }
-
-        /* HOME SECTION */
-
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px;
-
-            background:
-                radial-gradient(
-                    ellipse at 50% 35%,
-                    #17284b 0%,
-                    #080b14 65%
-                );
-        }
-
-        .tag {
-            color: #8db8ff;
-            font-size: 12px;
-            letter-spacing: 5px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 100px);
-            line-height: 1.1;
-            letter-spacing: -3px;
-        }
-
-        .hero h1 span {
-            color: #8db8ff;
-        }
-
-        .hero p.description {
-            max-width: 620px;
-            color: #a6aec4;
-            font-size: 17px;
-            margin-top: 25px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 28px;
-            border-radius: 6px;
-            background: #8db8ff;
-            color: #080b14;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: white;
-            transform: translateY(-3px);
-        }
-
-        /* GENERAL SECTION SETTINGS */
-
-        section.content {
-            padding: 100px 8%;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            max-width: 650px;
-            margin: 0 auto;
-            color: #a6aec4;
-        }
-
-        /* SERVICES */
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 45px;
-            text-align: left;
-        }
-
-        .service-card {
-            padding: 28px;
-            border: 1px solid #252d43;
-            border-radius: 12px;
-            background: #0d1220;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: #8db8ff;
-            transform: translateY(-5px);
-        }
-
-        .service-card h3 {
-            color: #8db8ff;
-            margin-bottom: 12px;
-        }
-
-        .service-card p {
-            color: #a6aec4;
-            font-size: 14px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            padding: 45px 20px;
-            border: 1px solid #252d43;
-            border-radius: 14px;
-            background: #0d1220;
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid #20263a;
-            padding: 25px;
-            text-align: center;
-            color: #778198;
-            font-size: 13px;
-        }
-
-        /* MOBILE RESPONSIVENESS */
-
-        @media (max-width: 700px) {
-            nav {
-                padding: 20px 5%;
-            }
-
-            .logo {
-                font-size: 23px;
-                letter-spacing: 4px;
-            }
-
-            nav a {
-                margin-left: 10px;
-                font-size: 12px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section.content {
-                padding: 70px 6%;
-            }
-
-            .section-title {
-                font-size: 30px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
+    <!-- CINEMATIC INTRO -->
+    <div class="cinematic-intro" id="cinematicIntro"
+         role="dialog" aria-label="VANQ cinematic introduction">
+
+        <div class="intro-grid"></div>
+        <div class="intro-blue-light"></div>
+        <div class="intro-orb"></div>
+
+        <div class="intro-content">
+
+            <!-- NEW METALLIC VQ LOGO -->
+            <div class="vanq-emblem intro-emblem">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="introMetal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="30%" stop-color="#aebdd1"/>
+                            <stop offset="52%" stop-color="#f7fbff"/>
+                            <stop offset="75%" stop-color="#8394aa"/>
+                            <stop offset="100%" stop-color="#e5efff"/>
+                        </linearGradient>
+
+                        <linearGradient id="introBlue" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#8be8ff"/>
+                            <stop offset="50%" stop-color="#1688ff"/>
+                            <stop offset="100%" stop-color="#0050d5"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path d="M12 19 L34 75 L49 44 L63 73"
+                          fill="none" stroke="url(#introMetal)"
+                          stroke-width="7" stroke-linecap="square"
+                          stroke-linejoin="miter"/>
+
+                    <path d="M63 44
+                             C75 37 88 46 86 59
+                             C84 72 71 78 61 69
+                             C52 61 54 50 63 44 Z"
+                          fill="none" stroke="url(#introBlue)"
+                          stroke-width="6"/>
+
+                    <path d="M73 65 L89 82"
+                          fill="none" stroke="url(#introBlue)"
+                          stroke-width="6" stroke-linecap="square"/>
+                </svg>
+            </div>
+
+            <p class="intro-overline">A NEW PERSPECTIVE</p>
+            <h1 class="intro-wordmark">VANQ<span>.</span></h1>
+            <p class="intro-tagline">BUILD BEYOND BOUNDARIES</p>
+
+            <div class="intro-loader">
+                <span></span>
+            </div>
+        </div>
+
+        <button class="skip-intro" id="skipIntro" type="button">
+            SKIP INTRO <span aria-hidden="true">↗</span>
+        </button>
+
+        <span class="intro-index">V / 001</span>
+    </div>
+
+
+    <!-- AMBIENT BACKGROUND -->
+    <div class="ambient-light" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+
     <!-- NAVIGATION -->
+    <header class="navbar">
+        <a class="brand" href="#home" aria-label="VANQ home">
 
-    <nav>
-        <div class="logo">VANQ</div>
+            <!-- NEW METALLIC VQ NAVBAR LOGO -->
+            <span class="brand-symbol">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="navMetal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="30%" stop-color="#aebdd1"/>
+                            <stop offset="52%" stop-color="#f7fbff"/>
+                            <stop offset="75%" stop-color="#8394aa"/>
+                            <stop offset="100%" stop-color="#e5efff"/>
+                        </linearGradient>
 
-        <div>
-            <a href="#home">Home</a>
+                        <linearGradient id="navBlue" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#8be8ff"/>
+                            <stop offset="50%" stop-color="#1688ff"/>
+                            <stop offset="100%" stop-color="#0050d5"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path d="M12 19 L34 75 L49 44 L63 73"
+                          fill="none" stroke="url(#navMetal)"
+                          stroke-width="7" stroke-linecap="square"
+                          stroke-linejoin="miter"/>
+
+                    <path d="M63 44
+                             C75 37 88 46 86 59
+                             C84 72 71 78 61 69
+                             C52 61 54 50 63 44 Z"
+                          fill="none" stroke="url(#navBlue)"
+                          stroke-width="6"/>
+
+                    <path d="M73 65 L89 82"
+                          fill="none" stroke="url(#navBlue)"
+                          stroke-width="6" stroke-linecap="square"/>
+                </svg>
+            </span>
+
+            <span>VANQ<span class="brand-dot">.</span></span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                type="button" aria-label="Open navigation"
+                aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
             <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+            <a href="#ventures">Ventures</a>
+            <a href="#founder">Founder</a>
+            <a href="#contact" class="nav-contact">Connect <span>↗</span></a>
+        </nav>
+    </header>
 
-    <!-- HOME -->
 
-    <section class="hero" id="home">
-        <p class="tag">TECHNOLOGY • INNOVATION • FUTURE</p>
+    <main>
 
-        <h1>
-            Build Beyond<br>
-            <span>Limits.</span>
-        </h1>
+        <!-- HERO -->
+        <section class="hero" id="home">
 
-        <p class="description">
-            Exploring the future through software development,
-            artificial intelligence, and intelligent automation.
-            Turning ideas into digital experiences.
-        </p>
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="hero-orb orb-one" aria-hidden="true"></div>
+            <div class="hero-orb orb-two" aria-hidden="true"></div>
 
-        <a href="#services" class="button">Explore VANQ ↗</a>
-    </section>
+            <div class="hero-content">
 
-    <!-- ABOUT -->
+                <div class="status-label">
+                    <span class="status-dot"></span>
+                    AN EMERGING TECHNOLOGY BRAND
+                </div>
 
-    <section class="content" id="about">
-        <p class="tag">WHO WE ARE</p>
+                <p class="hero-kicker">THINK WITHOUT LIMITS.</p>
 
-        <h2 class="section-title">Ideas Into Innovation.</h2>
+                <h1 class="hero-title" id="heroTitle">
+                    BUILD<br>
+                    <span>BEYOND</span><br>
+                    BOUNDARIES<span class="title-period">.</span>
+                </h1>
 
-        <p class="section-description">
-            VANQ is a developing technology brand focused on learning,
-            building useful digital products, and exploring the
-            possibilities of software and artificial intelligence.
-        </p>
-    </section>
-
-    <!-- SERVICES -->
-
-    <section class="content" id="services">
-        <p class="tag">WHAT WE ARE EXPLORING</p>
-
-        <h2 class="section-title">Technology That Moves Forward.</h2>
-
-        <p class="section-description">
-            Our initial areas of focus as we develop our skills
-            and build our first products.
-        </p>
-
-        <div class="service-grid">
-
-            <div class="service-card">
-                <h3>01 / Web Development</h3>
-
-                <p>
-                    Modern, responsive websites and digital
-                    experiences for people and businesses.
+                <p class="hero-description">
+                    Exploring the intersection of technology, artificial
+                    intelligence, and bold ideas to shape what comes next.
                 </p>
+
+                <div class="hero-actions">
+                    <a href="#ventures" class="button button-primary">
+                        EXPLORE VANQ <span>↗</span>
+                    </a>
+
+                    <a href="#about" class="button button-secondary">
+                        OUR VISION <span>↓</span>
+                    </a>
+                </div>
+
+                <div class="hero-meta">
+                    <span>INDEPENDENT THINKING</span>
+                    <span class="meta-line"></span>
+                    <span>FUTURE FOCUSED</span>
+                </div>
             </div>
 
-            <div class="service-card">
-                <h3>02 / AI Automation</h3>
 
-                <p>
-                    Exploring intelligent tools that can simplify
-                    repetitive tasks and business workflows.
-                </p>
+            <!-- METALLIC VQ IN THE HERO VISUAL -->
+            <div class="hero-visual" id="heroVisual" aria-hidden="true">
+
+                <div class="visual-ring ring-outer"></div>
+                <div class="visual-ring ring-middle"></div>
+                <div class="visual-ring ring-inner"></div>
+
+                <div class="visual-core">
+                    <svg viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="heroMetal" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="30%" stop-color="#aebdd1"/>
+                                <stop offset="52%" stop-color="#f7fbff"/>
+                                <stop offset="75%" stop-color="#8394aa"/>
+                                <stop offset="100%" stop-color="#e5efff"/>
+                            </linearGradient>
+
+                            <linearGradient id="heroBlue" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#8be8ff"/>
+                                <stop offset="50%" stop-color="#1688ff"/>
+                                <stop offset="100%" stop-color="#0050d5"/>
+                            </linearGradient>
+                        </defs>
+
+                        <path d="M12 19 L34 75 L49 44 L63 73"
+                              fill="none" stroke="url(#heroMetal)"
+                              stroke-width="7" stroke-linecap="square"
+                              stroke-linejoin="miter"/>
+
+                        <path d="M63 44
+                                 C75 37 88 46 86 59
+                                 C84 72 71 78 61 69
+                                 C52 61 54 50 63 44 Z"
+                              fill="none" stroke="url(#heroBlue)"
+                              stroke-width="6"/>
+
+                        <path d="M73 65 L89 82"
+                              fill="none" stroke="url(#heroBlue)"
+                              stroke-width="6" stroke-linecap="square"/>
+                    </svg>
+                </div>
+
+                <div class="visual-orbit orbit-a"></div>
+                <div class="visual-orbit orbit-b"></div>
+
+                <span class="visual-label label-top">IDEAS / 001</span>
+                <span class="visual-label label-bottom">FUTURE IN PROGRESS</span>
             </div>
 
-            <div class="service-card">
-                <h3>03 / Software Products</h3>
-
-                <p>
-                    Learning to design and build useful applications
-                    that solve real-world problems.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-
-    <section class="content" id="contact">
-        <div class="contact-box">
-            <p class="tag">HAVE AN IDEA?</p>
-
-            <h2 class="section-title">Let's Build What's Next.</h2>
-
-            <p class="section-description">
-                Interested in technology and new ideas?
-                Connect with VANQ as the journey begins.
-            </p>
-
-            <a
-                class="button"
-                href="mailto:hello@vanq.example?subject=VANQ%20Enquiry"
-            >
-                Contact VANQ ↗
+            <a href="#about" class="scroll-indicator">
+                <span class="scroll-line"></span>
+                SCROLL TO EXPLORE
             </a>
-        </div>
-    </section>
+
+            <div class="hero-coordinate">13° / 80° — NEXT</div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="section about-section" id="about">
+
+            <div class="section-heading reveal">
+                <span class="section-number">01 / THE VISION</span>
+                <span class="section-caption">WHY VANQ EXISTS</span>
+            </div>
+
+            <div class="about-layout">
+
+                <h2 class="section-title reveal">
+                    The future isn't<br>
+                    <span>something we wait for.</span>
+                </h2>
+
+                <div class="about-copy reveal">
+                    <p>
+                        We believe technology should begin with curiosity
+                        and grow through experimentation, creativity,
+                        and continuous learning.
+                    </p>
+
+                    <p>
+                        VANQ is an emerging technology brand exploring
+                        artificial intelligence, software, automation,
+                        and digital experiences—with an ambition to
+                        build beyond the expected.
+                    </p>
+
+                    <a href="#ventures" class="text-link">
+                        DISCOVER OUR DIRECTION <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="principles-grid">
+
+                <article class="principle-card reveal">
+                    <span class="principle-index">01</span>
+                    <div class="principle-icon">✳</div>
+                    <h3>Curiosity First</h3>
+                    <p>Question what exists. Explore what could be.</p>
+                </article>
+
+                <article class="principle-card reveal">
+                    <span class="principle-index">02</span>
+                    <div class="principle-icon">⌘</div>
+                    <h3>Build With Purpose</h3>
+                    <p>Turn ambitious ideas into thoughtful experiments.</p>
+                </article>
+
+                <article class="principle-card reveal">
+                    <span class="principle-index">03</span>
+                    <div class="principle-icon">↗</div>
+                    <h3>Think Forward</h3>
+                    <p>Learn continuously. Improve relentlessly.</p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- VENTURES -->
+        <section class="section ventures-section" id="ventures">
+
+            <div class="section-heading reveal">
+                <span class="section-number">02 / AREAS OF EXPLORATION</span>
+                <span class="section-caption">POSSIBILITIES IN MOTION</span>
+            </div>
+
+            <div class="ventures-heading reveal">
+                <h2 class="section-title">
+                    One vision.<br>
+                    <span>Multiple frontiers.</span>
+                </h2>
+
+                <p>
+                    Our areas of interest today. Our future will be
+                    shaped by what we learn and build.
+                </p>
+            </div>
+
+            <div class="venture-grid">
+
+                <article class="venture-card reveal">
+                    <div class="card-topline">
+                        <span>V / 01</span>
+                        <span class="card-arrow">↗</span>
+                    </div>
+
+                    <div class="venture-art ai-art" aria-hidden="true">
+                        <div class="ai-ring"></div>
+                        <div class="ai-core">AI</div>
+                        <span class="ai-node node-one"></span>
+                        <span class="ai-node node-two"></span>
+                        <span class="ai-node node-three"></span>
+                    </div>
+
+                    <span class="card-category">INTELLIGENCE</span>
+                    <h3>AI & Automation</h3>
+                    <p>
+                        Exploring intelligent tools and workflows that
+                        could make everyday work more capable.
+                    </p>
+                    <span class="card-status">AREA OF EXPLORATION</span>
+                </article>
+
+
+                <article class="venture-card reveal">
+                    <div class="card-topline">
+                        <span>V / 02</span>
+                        <span class="card-arrow">↗</span>
+                    </div>
+
+                    <div class="venture-art software-art" aria-hidden="true">
+                        <div class="code-window">
+                            <span></span><span></span><span></span>
+                            <div class="code-lines">
+                                <i></i><i></i><i></i><i></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="card-category">ENGINEERING</span>
+                    <h3>Software & Technology</h3>
+                    <p>
+                        Learning and building websites, applications,
+                        and useful digital experiences.
+                    </p>
+                    <span class="card-status">AREA OF EXPLORATION</span>
+                </article>
+
+
+                <article class="venture-card reveal">
+                    <div class="card-topline">
+                        <span>V / 03</span>
+                        <span class="card-arrow">↗</span>
+                    </div>
+
+                    <div class="venture-art digital-art" aria-hidden="true">
+                        <div class="digital-cube cube-one"></div>
+                        <div class="digital-cube cube-two"></div>
+                        <div class="digital-cube cube-three"></div>
+                    </div>
+
+                    <span class="card-category">EXPERIENCES</span>
+                    <h3>Digital Products</h3>
+                    <p>
+                        Exploring creative tools, online products,
+                        and new ways to solve digital problems.
+                    </p>
+                    <span class="card-status">AREA OF EXPLORATION</span>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- BRAND STATEMENT -->
+        <section class="statement-section reveal">
+            <div class="statement-glow"></div>
+            <span class="section-number">THE VANQ MINDSET</span>
+
+            <h2>
+                Don't follow<br>
+                <span>the possible.</span>
+            </h2>
+
+            <p>Explore what comes after it.</p>
+
+            <div class="statement-mark">V.</div>
+        </section>
+
+
+        <!-- FOUNDER -->
+        <section class="section founder-section" id="founder">
+
+            <div class="section-heading reveal">
+                <span class="section-number">03 / THE PERSON BEHIND THE VISION</span>
+                <span class="section-caption">BUILT ON CURIOSITY</span>
+            </div>
+
+            <div class="founder-panel reveal">
+
+                <div class="founder-visual">
+                    <div class="founder-monogram">V<span>.</span></div>
+                    <div class="founder-orbit"></div>
+                    <span class="founder-label">FOUNDER / VANQ</span>
+                </div>
+
+                <div class="founder-copy">
+                    <span class="card-category">THE BEGINNING</span>
+
+                    <h2>Abdul Naafi H</h2>
+
+                    <p class="founder-role">
+                        Founder · Technology Explorer
+                    </p>
+
+                    <p>
+                        Building VANQ as a journey of learning,
+                        experimentation, and ambitious ideas.
+                        The vision is to explore technology today
+                        and develop meaningful digital products over time.
+                    </p>
+
+                    <p class="founder-note">
+                        Every great system starts with a first step.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="section contact-section" id="contact">
+
+            <div class="contact-box reveal">
+                <span class="section-number">04 / THE NEXT CHAPTER</span>
+
+                <h2>
+                    Have an idea?<br>
+                    <span>Let's explore it.</span>
+                </h2>
+
+                <p>
+                    VANQ is at the beginning of its journey.
+                    Follow the vision as ideas develop into experiments
+                    and future projects.
+                </p>
+
+                <a href="#home" class="button button-primary">
+                    BACK TO THE BEGINNING <span>↑</span>
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
 
     <!-- FOOTER -->
+    <footer class="footer">
+        <a class="brand footer-brand" href="#home">
 
-    <footer>
-        VANQ © 2026 | Building step by step.
+            <!-- NEW METALLIC VQ FOOTER LOGO -->
+            <span class="brand-symbol">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="footerMetal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="30%" stop-color="#aebdd1"/>
+                            <stop offset="52%" stop-color="#f7fbff"/>
+                            <stop offset="75%" stop-color="#8394aa"/>
+                            <stop offset="100%" stop-color="#e5efff"/>
+                        </linearGradient>
+
+                        <linearGradient id="footerBlue" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#8be8ff"/>
+                            <stop offset="50%" stop-color="#1688ff"/>
+                            <stop offset="100%" stop-color="#0050d5"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path d="M12 19 L34 75 L49 44 L63 73"
+                          fill="none" stroke="url(#footerMetal)"
+                          stroke-width="7" stroke-linecap="square"
+                          stroke-linejoin="miter"/>
+
+                    <path d="M63 44
+                             C75 37 88 46 86 59
+                             C84 72 71 78 61 69
+                             C52 61 54 50 63 44 Z"
+                          fill="none" stroke="url(#footerBlue)"
+                          stroke-width="6"/>
+
+                    <path d="M73 65 L89 82"
+                          fill="none" stroke="url(#footerBlue)"
+                          stroke-width="6" stroke-linecap="square"/>
+                </svg>
+            </span>
+
+            <span>VANQ<span class="brand-dot">.</span></span>
+        </a>
+
+        <p>BUILD BEYOND BOUNDARIES.</p>
+
+        <span class="footer-copyright">
+            © <span id="year">2026</span> VANQ
+        </span>
     </footer>
 
 </body>
-
 </html>
-```
